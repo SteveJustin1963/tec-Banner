@@ -12,24 +12,24 @@ draft - convet/comment to 1.1
 
 \\ B tests each bit in turn and prints out 1 or 0 accordingly
 :B 
-  b!        \\ save b
-  8(        \\ repeat 8 times
-  128 b@ &  \\ #80 = b10000000  recall b  AND them, so keep msb
-  128 =     \\ #80 = b10000000 = compare stack to msb if true
-  C         \\ call C 
-  b@ { b!   \\ recall b, shift number left (2*), save b
-  )         \\ close loop
-  ;         \\ end
+   b!        \\ save b
+   8(        \\ repeat 8 times
+   128 b@ &  \\ #80 = b10000000  recall b  AND them, so keep msb
+   128 =     \\ #80 = b10000000 = compare stack to msb if true
+   C         \\ call C 
+   b@ { b!   \\ recall b, shift number left (2*), save b
+   )         \\ close loop
+   ;         \\ end
 
 \\ G emits either whitespace or blackspace (for chunky graphics).
 :G
-  "
-  (
-  219 \E
-  )
-  0= (
-  32 \E
-  );						                      
+   "           \\ dup stack
+   (           \\ loop
+   219 \,      \\ print char 219, extended ascii block character █
+   )           \\
+   0= (        \\
+   32 \,       \\ print char 32, 
+   );				\\		                      
 
 \\ A produces a row of chunky pixels followed by NEWLINE
 :A 
