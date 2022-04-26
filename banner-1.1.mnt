@@ -29,7 +29,7 @@ draft - convet/comment to 1.1
    )           \\
    0= (        \\
    32 \,       \\ print char 32, 
-   );				\\ 
+   );          \\
 
 \\ A produces a row of chunky pixels followed by NEWLINE
 :A 
