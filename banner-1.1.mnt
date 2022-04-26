@@ -134,3 +134,19 @@ B
 
 7E 5E 6E 5E 7E    Print a B
 
+
+////////////////////
+Christmas Greeting
+:A \[#61 #6E #64 #20 #61 #20 #48 #61 #70 #70 #79 #20 #4E #65 #77 #20 #59 #65 #61 #72 #21 #20 ]'a! ; \\ and a Happy New Year!
+:H \[#48 #61 #76 #65 #20 #61 #20 #4D #65 #72 #72 #79 #20 #43 #68 #72 #69 #73 #74 #6D #61 #73 ]'a! ; \\ Have a Merry Christmas
+:M \[#75 #73 #69 #6E #67 #20 #5A #38 #30 #20 #4D #49 #4E #54 #20 #63 #6F #64 #65 #21 #20 #20 ]'a! ; \\ using Z80 MINT code!
+:T \[#54 #6F #20 #41 #6C #6C #20 #54 #68 #65 #20 #54 #45 #43 #2D #31 #20 #55 #73 #65 #72 #73 ]'a! ; \\ To All The TEC-1 Users
+:Q a@+\@32-8*#E000 +x@+\@ z!5(128z@&128="(219\E)0=(32\E)z@{z!)32\E; \\ Print either space or white block
+:Y 0x!Z1x!Z2x!Z3x!Z4x!Z5x!Z6x!Z7x!Z ; \\ Repeat for all 8 lines
+:Z 22(\i@Q1000())\N; \\ Repeat for all 22 characters per line
+:G TY\NHY\NAY\NMY; \\ Select order of message and add newlines \N
+```
+The P definition is now called Q
+/////////////////////
+
+
