@@ -14,33 +14,35 @@ draft - convet/comment to 1.1
 :B 
    b!        \\ save b
    8(        \\ repeat 8 times
-   128 b@ &  \\ #80 = b10000000  recall b  AND them, so keep msb
-   128 =     \\ #80 = b10000000 = compare stack to msb if true
-   C         \\ call C 
-   b@ { b!   \\ recall b, shift number left (2*), save b
-   )         \\ close loop
-   ;         \\ end
+      128 b@ &  \\ #80 = b10000000  recall b  AND them, so keep msb
+      128 =     \\ #80 = b10000000 = compare stack to msb if true
+      C         \\ run C 
+      b@ { b!   \\ recall b, shift number left (2*), save b
+    )         \\ close loop
+ ;         \\ end
 
 \\ G emits either whitespace or blackspace (for chunky graphics).
 :G
    "           \\ dup stack
-   (           \\ loop
-   219 \,      \\ print char 219, extended ascii block character `█`
-   )           \\
-   0= (        \\
-   32 \,       \\ print char 32, 
-   );          \\
-
+   (           \\ loop if +ve
+      219 \,      \\ print char 219, extended ascii block character █
+      )           \\ end loop
+   0= (        \\ loop if = 0
+      32 \,       \\ print char 32, ascii character SPACE
+    )          \\ end loop
+ ;
+   
 \\ A produces a row of chunky pixels followed by NEWLINE
 :A 
-   b! 
-   8(
-   128 b@ & 
-   128 = 
-   G 
-   b@ { b!
-   ) 
-   \N;		              
+   b!          \\ save b
+   8(          \\ loop 8 times
+      128 b@ &    \\ #80 = b10000000  recall b  AND them, so keep msb
+      128 =       \\ #80 = b10000000 = compare stack to msb if true
+      G           \\ run G
+      b@ { b!     \\ recall b, shift number left (2*), save b 
+      )        \\ close loop 
+   \$          \\ CRLF
+ ;		              
 
 \\ Prints letter A
 \N #7E A #81 A #81 A #81 A #FF A #81 A #81 A #81 A    
