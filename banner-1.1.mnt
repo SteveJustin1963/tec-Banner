@@ -1,13 +1,21 @@
 draft - convet/comment to 1.1
 
-The chunky graphics program started with the requirement to take a byte from memory, test each bit in turn and print either a space (ascii 32) or an inverse space (ascii 219). This was inspired by a simple binary number print routine, which tests each bit and prints either 0 or 1.
-The C definition expects either a 0 or 1 on the stack and prints out a 0 or 1 accordingly. " is the DUP command which duplicates the top number on the stack, so that it can be used twice, for each part of the if-then-else construct
-The first set of parentheses (`1`) will print out 1, if the top of stack is 1. The 0= compares the stack entry to 0 which effectively inverts it. The second parentheses (`0`) will print out 0 if after inverting the stack is zero.
+The chunky graphics program started with the requirement to take a byte from memory, test each bit in turn and print either a space (ascii 32) 
+or an inverse space (ascii 219). 
+
+This was inspired by a simple binary number print routine, which tests each bit and prints either 0 or 1.
+The C definition expects either a 0 or 1 on the stack and prints out a 0 or 1 accordingly. " is the DUP command 
+which duplicates the top number on the stack, so that it can be used twice, for each part of the if-then-else construct
+   The first set of parentheses (`1`) will print out 1, if the top of stack is 1. The 0= compares the stack entry to 0 which effectively inverts it. 
+   The second parentheses (`0`) will print out 0 if after inverting the stack is zero.
+
 :C "(`1`)0=(`0`); \\ C prints out either 1 or 0
 We now need to write a definition that will test each bit in turn and return either 0 or 1, so that we can use the C definition to print it out.
-The B definition below, accepts a byte, from the stack and stores it into the b variable using b!. It then sets up a loop that ANDs the value in b with 128, and then tests the top bit to see if b is 128 and returns either 0 or 1 to the printing routine C. It then uses { to left shift the value in b and stores it back into b. The loop is performed 8 times thus testing each bit in turn.
-:B b! 8(128 b@ & 128 = C b@ { b!); \\ B tests each bit in turn and prints out 1 or 0 accordingly.
 
+The B definition below, accepts a byte, from the stack and stores it into the b variable using b!. 
+It then sets up a loop that ANDs the value in b with 128, and then tests the top bit to see if b is 128 and returns either 0 or 1 to the printing routine C. 
+It then uses { to left shift the value in b and stores it back into b. The loop is performed 8 times thus testing each bit in turn.
+:B b! 8(128 b@ & 128 = C b@ { b!); \\ B tests each bit in turn and prints out 1 or 0 accordingly.
 
 
 
