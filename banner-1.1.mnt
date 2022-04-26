@@ -1,4 +1,4 @@
-draft - convet/comment to 1.1
+draft - convet/comment to work with  v1.1
 
 The chunky graphics program started with the requirement to take a byte from memory, test each bit in turn and print either a space (ascii 32) 
 or an inverse space (ascii 219). 
