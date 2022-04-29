@@ -30,7 +30,7 @@ It then uses { to left shift the value in b and stores it back into b. The loop 
    0=       \\ if 0
    (`0`)    \\ pint 0
    ;        \\ end			
-\\  Also you can rewrite if...then...else as :C \(`1`)(`0`)
+\\  Also you can rewrite if...then...else as :C (`1`)(`0`)  no space between()()
    
    
    
